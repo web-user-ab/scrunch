@@ -1,16 +1,8 @@
-function extractProjectID(url) {
-    const match = url.match(/projects\/(\d+)/);
-    return match ? match[1] : null;
-}
+function loadProject() {
+    const projectId = document.getElementById("scratch-id").value.trim();
 
-function loadProject(projectId = null) {
-    let input = document.getElementById("scratch-url").value;
-    if (!projectId) {
-        projectId = extractProjectID(input);
-    }
-
-    if (!projectId) {
-        alert("Invalid Scratch project URL!");
+    if (!projectId || isNaN(projectId)) {
+        alert("Please enter a valid Scratch project ID!");
         return;
     }
 
@@ -50,16 +42,24 @@ function enterFullscreen() {
 }
 
 function openInNewTab() {
-    const projectId = window.location.hash.substring(1) || extractProjectID(document.getElementById("scratch-url").value);
+    const projectId = document.getElementById("scratch-id").value.trim();
     if (projectId) {
         window.open(`https://forkphorus.github.io/embed#${projectId}`, "_blank");
     }
 }
 
-// Check if the page was loaded with a project ID in the URL
+function openScratchPage() {
+    const projectId = document.getElementById("scratch-id").value.trim();
+    if (projectId) {
+        window.open(`https://scratch.mit.edu/projects/${projectId}/`, "_blank");
+    }
+}
+
+// Auto-load project if URL contains a hash
 window.onload = function () {
     const projectId = window.location.hash.substring(1);
     if (projectId) {
-        loadProject(projectId);
+        document.getElementById("scratch-id").value = projectId;
+        loadProject();
     }
 };
