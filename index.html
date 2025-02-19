@@ -9,13 +9,19 @@
 <body>
     <div class="container">
         <h1>ScratchBlast</h1>
-        <p>Enter a Scratch project URL to run it with JavaScript.</p>
-        <input type="text" id="scratch-url" placeholder="Enter Scratch project URL">
-        <button onclick="loadProject()">Run Project</button>
+        <p>Enter a Scratch project ID to run it with JavaScript.</p>
 
-        <div id="player-container">
-            <!-- Forkphorus iframe will be inserted here -->
+        <div class="input-container">
+            <span class="prefix">scratch.mit.edu/projects/</span>
+            <input type="text" id="scratch-id" placeholder="Enter Project ID">
         </div>
+
+        <div class="buttons">
+            <button onclick="loadProject()">Run Project</button>
+            <button id="open-url-btn" onclick="openScratchPage()">Open in Scratch</button>
+        </div>
+
+        <div id="player-container"></div>
 
         <div class="buttons">
             <button id="fullscreen-btn" onclick="enterFullscreen()" style="display: none;">Fullscreen</button>
