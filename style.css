@@ -4,32 +4,68 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
-    width: 50%;
-    margin: 50px auto;
-    padding: 20px;
+    width: 90%;
+    max-width: 500px;
     background: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.prefix {
+    background: #ddd;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    font-size: 14px;
+    white-space: nowrap;
 }
 
 input {
-    width: 80%;
+    flex-grow: 1;
+    border: none;
     padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    font-size: 16px;
+    border-radius: 0 5px 5px 0;
+    outline: none;
+    background: white;
+}
+
+.buttons {
+    margin-top: 10px;
 }
 
 button {
-    padding: 10px 20px;
-    border: none;
     background-color: #007bff;
     color: white;
-    border-radius: 5px;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s;
     margin: 5px;
 }
 
@@ -41,6 +77,10 @@ button:hover {
     margin-top: 20px;
 }
 
-.buttons {
-    margin-top: 10px;
+iframe {
+    width: 100%;
+    max-width: 480px;
+    height: 360px;
+    border-radius: 10px;
+    border: none;
 }
